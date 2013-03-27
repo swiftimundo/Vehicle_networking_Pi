@@ -27,7 +27,7 @@ def event_stream(deadzone=0,scale=32768):
         if 'Error' in line:
             raise ValueError(line)
         data = filter(bool,s.split(line[:-1]))
-        if len(data)==42:
+        if data==42:
             # Break input string into a data dict
             data = { data[x]:int(data[x+1]) for x in range(0,len(data),2) }
             if not _data:
